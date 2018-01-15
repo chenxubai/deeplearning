@@ -1,0 +1,120 @@
+numEpochs = 25;
+[an2i, at33, boland, bpm, ch4f, cheyer, choon, danieln, glickman, karyadi, kawamura, kk49, megak, mitchell, night, phoebe, saavik, steffi, sz24, tammo]
+
+Examples labeled as 0 classified by model as 0: 8 times
+Examples labeled as 2 classified by model as 2: 1 times
+Examples labeled as 2 classified by model as 6: 3 times
+Examples labeled as 2 classified by model as 17: 3 times
+Examples labeled as 3 classified by model as 3: 8 times
+Examples labeled as 4 classified by model as 4: 8 times
+Examples labeled as 5 classified by model as 5: 8 times
+Examples labeled as 6 classified by model as 6: 8 times
+Examples labeled as 7 classified by model as 7: 7 times
+Examples labeled as 8 classified by model as 8: 8 times
+Examples labeled as 10 classified by model as 10: 8 times
+Examples labeled as 11 classified by model as 11: 8 times
+
+Warning: 9 classes were never predicted by the model and were excluded from average precision
+Classes excluded from average precision: [1, 9, 12, 13, 14, 15, 16, 18, 19]
+Warning: 10 classes were never predicted by the model and were excluded from average recall
+Classes excluded from average recall: [1, 9, 12, 13, 14, 15, 16, 17, 18, 19]
+
+==========================Scores========================================
+ # of classes:    20
+ Accuracy:        0.9231
+ Precision:       0.8843	(9 classes excluded from average)
+ Recall:          0.9143	(10 classes excluded from average)
+ F1 Score:        0.9092	(10 classes excluded from average)
+Precision, recall & F1: macro-averaged (equally weighted avg. of 20 classes)
+========================================================================
+
+numEpochs = 30;
+[an2i, at33, boland, bpm, ch4f, cheyer, choon, danieln, glickman, karyadi, kawamura, kk49, megak, mitchell, night, phoebe, saavik, steffi, sz24, tammo]
+
+Examples labeled as 0 classified by model as 0: 8 times
+Examples labeled as 2 classified by model as 2: 1 times
+Examples labeled as 2 classified by model as 6: 3 times
+Examples labeled as 2 classified by model as 16: 1 times
+Examples labeled as 2 classified by model as 17: 3 times
+Examples labeled as 3 classified by model as 3: 8 times
+Examples labeled as 4 classified by model as 4: 8 times
+Examples labeled as 5 classified by model as 5: 8 times
+Examples labeled as 6 classified by model as 6: 8 times
+Examples labeled as 7 classified by model as 7: 7 times
+Examples labeled as 8 classified by model as 8: 8 times
+Examples labeled as 10 classified by model as 10: 8 times
+Examples labeled as 11 classified by model as 11: 8 times
+
+Warning: 8 classes were never predicted by the model and were excluded from average precision
+Classes excluded from average precision: [1, 9, 12, 13, 14, 15, 18, 19]
+Warning: 10 classes were never predicted by the model and were excluded from average recall
+Classes excluded from average recall: [1, 9, 12, 13, 14, 15, 16, 17, 18, 19]
+
+==========================Scores========================================
+ # of classes:    20
+ Accuracy:        0.9114
+ Precision:       0.8106	(8 classes excluded from average)
+ Recall:          0.9125	(10 classes excluded from average)
+ F1 Score:        0.9064	(10 classes excluded from average)
+Precision, recall & F1: macro-averaged (equally weighted avg. of 20 classes)
+========================================================================
+
+numEpochs = 40;
+[an2i, at33, boland, bpm, ch4f, cheyer, choon, danieln, glickman, karyadi, kawamura, kk49, megak, mitchell, night, phoebe, saavik, steffi, sz24, tammo]
+
+Examples labeled as 0 classified by model as 0: 8 times
+Examples labeled as 2 classified by model as 2: 1 times
+Examples labeled as 2 classified by model as 6: 2 times
+Examples labeled as 2 classified by model as 17: 3 times
+Examples labeled as 3 classified by model as 3: 8 times
+Examples labeled as 4 classified by model as 4: 8 times
+Examples labeled as 5 classified by model as 5: 8 times
+Examples labeled as 6 classified by model as 6: 8 times
+Examples labeled as 7 classified by model as 7: 7 times
+Examples labeled as 8 classified by model as 8: 8 times
+Examples labeled as 10 classified by model as 10: 8 times
+Examples labeled as 11 classified by model as 11: 8 times
+
+Warning: 9 classes were never predicted by the model and were excluded from average precision
+Classes excluded from average precision: [1, 9, 12, 13, 14, 15, 16, 18, 19]
+Warning: 10 classes were never predicted by the model and were excluded from average recall
+Classes excluded from average recall: [1, 9, 12, 13, 14, 15, 16, 17, 18, 19]
+
+==========================Scores========================================
+ # of classes:    20
+ Accuracy:        0.9351
+ Precision:       0.8909	(9 classes excluded from average)
+ Recall:          0.9167	(10 classes excluded from average)
+ F1 Score:        0.9175	(10 classes excluded from average)
+Precision, recall & F1: macro-averaged (equally weighted avg. of 20 classes)
+========================================================================
+
+numEpochs = 50;
+[an2i, at33, boland, bpm, ch4f, cheyer, choon, danieln, glickman, karyadi, kawamura, kk49, megak, mitchell, night, phoebe, saavik, steffi, sz24, tammo]
+
+Examples labeled as 0 classified by model as 0: 8 times
+Examples labeled as 2 classified by model as 2: 1 times
+Examples labeled as 2 classified by model as 6: 2 times
+Examples labeled as 2 classified by model as 17: 3 times
+Examples labeled as 3 classified by model as 3: 8 times
+Examples labeled as 4 classified by model as 4: 8 times
+Examples labeled as 5 classified by model as 5: 8 times
+Examples labeled as 6 classified by model as 6: 8 times
+Examples labeled as 7 classified by model as 7: 7 times
+Examples labeled as 8 classified by model as 8: 8 times
+Examples labeled as 10 classified by model as 10: 8 times
+Examples labeled as 11 classified by model as 11: 8 times
+
+Warning: 9 classes were never predicted by the model and were excluded from average precision
+Classes excluded from average precision: [1, 9, 12, 13, 14, 15, 16, 18, 19]
+Warning: 10 classes were never predicted by the model and were excluded from average recall
+Classes excluded from average recall: [1, 9, 12, 13, 14, 15, 16, 17, 18, 19]
+
+==========================Scores========================================
+ # of classes:    20
+ Accuracy:        0.9351
+ Precision:       0.8909	(9 classes excluded from average)
+ Recall:          0.9167	(10 classes excluded from average)
+ F1 Score:        0.9175	(10 classes excluded from average)
+Precision, recall & F1: macro-averaged (equally weighted avg. of 20 classes)
+========================================================================
