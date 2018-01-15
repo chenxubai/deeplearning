@@ -1,5 +1,6 @@
 package org.deeplearning4j.examples.dataexamples;
 
+
 import java.io.File;
 import java.util.Random;
 

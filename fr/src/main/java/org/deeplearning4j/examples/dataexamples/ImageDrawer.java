@@ -1,5 +1,6 @@
 package org.deeplearning4j.examples.dataexamples;
 
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;

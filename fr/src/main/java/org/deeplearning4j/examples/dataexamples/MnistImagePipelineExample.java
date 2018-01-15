@@ -1,5 +1,6 @@
 package org.deeplearning4j.examples.dataexamples;
 
+
 import org.apache.commons.io.FilenameUtils;
 import org.datavec.api.io.labels.ParentPathLabelGenerator;
 import org.datavec.api.records.listener.impl.LogRecordListener;

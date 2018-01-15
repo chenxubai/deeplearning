@@ -1,5 +1,6 @@
 package org.deeplearning4j.examples.dataexamples;
 
+
 import org.datavec.api.records.Record;
 import org.datavec.api.records.metadata.RecordMetaData;
 import org.datavec.api.records.reader.RecordReader;
