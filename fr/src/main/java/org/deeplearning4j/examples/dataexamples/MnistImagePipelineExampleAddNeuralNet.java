@@ -1,5 +1,11 @@
 package org.deeplearning4j.examples.dataexamples;
 
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 import org.apache.commons.io.FilenameUtils;
 import org.datavec.api.io.labels.ParentPathLabelGenerator;
 import org.datavec.api.split.FileSplit;
@@ -20,16 +26,12 @@ import org.deeplearning4j.nn.weights.WeightInit;
 import org.deeplearning4j.optimize.listeners.ScoreIterationListener;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.dataset.api.preprocessor.DataNormalization;
 import org.nd4j.linalg.dataset.api.preprocessor.ImagePreProcessingScaler;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.*;
-import java.util.Random;
 
 /**
  * This code example is featured in this youtube video
@@ -52,6 +54,9 @@ public class MnistImagePipelineExampleAddNeuralNet {
   /** Data URL for downloading */
   public static final String DATA_URL = "http://github.com/myleott/mnist_png/raw/master/mnist_png.tar.gz";
 
+  /** Location to save and extract the training/testing data */
+  public static final String DATA_PATH = FilenameUtils.concat("E:\\ML\\DL", "dl4j_Mnist/");
+
   public static void main(String[] args) throws Exception {
     // image information
     // 28 * 28 grayscale
@@ -62,8 +67,8 @@ public class MnistImagePipelineExampleAddNeuralNet {
     int rngseed = 123;
     Random randNumGen = new Random(rngseed);
     int batchSize = 128;
-    int outputNum = 10;
-    int numEpochs = 24;
+    int outputNumTrain = 20;
+    int numEpochs = 50;
 
     /*
     This class downloadData() downloads the data
@@ -95,7 +100,7 @@ public class MnistImagePipelineExampleAddNeuralNet {
     //recordReader.setListeners(new LogRecordListener());
 
     // DataSet Iterator
-    DataSetIterator dataIter = new RecordReaderDataSetIterator(recordReader, batchSize, 1, outputNum);
+    DataSetIterator dataIter = new RecordReaderDataSetIterator(recordReader, batchSize, 1, outputNumTrain);
 
     // Scale pixel values to 0-1
     DataNormalization scaler = new ImagePreProcessingScaler(0, 1);
@@ -120,7 +125,7 @@ public class MnistImagePipelineExampleAddNeuralNet {
             .build())
         .layer(1, new OutputLayer.Builder(LossFunctions.LossFunction.NEGATIVELOGLIKELIHOOD)
             .nIn(100)
-            .nOut(outputNum)
+            .nOut(outputNumTrain)
             .activation(Activation.SOFTMAX)
             .weightInit(WeightInit.XAVIER)
             .build())
@@ -138,42 +143,40 @@ public class MnistImagePipelineExampleAddNeuralNet {
     for (int i = 0; i < numEpochs; i++) {
       model.fit(dataIter);
     }
-
+    recordReader.close();
     log.info("EVALUATE MODEL");
-    recordReader.reset();
+    ImageRecordReader recordReaderTest = new ImageRecordReader(height, width, channels, labelMaker,resize);
+
 
     // The model trained on the training dataset split
     // now that it has trained we evaluate against the
     // test data of images the network has not seen
 
-    recordReader.initialize(test);
-    DataSetIterator testIter = new RecordReaderDataSetIterator(recordReader, batchSize, 1, outputNum);
-    scaler.fit(testIter);
-    testIter.setPreProcessor(scaler);
-
-    /*
-    log the order of the labels for later use
-    In previous versions the label order was consistent, but random
-    In current verions label order is lexicographic
-    preserving the RecordReader Labels order is no
-    longer needed left in for demonstration
-    purposes
-    */
-    log.info(recordReader.getLabels().toString());
-
-    // Create Eval object with 10 possible classes
-    Evaluation eval = new Evaluation(outputNum);
-
-    // Evaluate the network
-    while (testIter.hasNext()) {
-      DataSet next = testIter.next();
-      INDArray output = model.output(next.getFeatureMatrix());
-      // Compare the Feature Matrix from the model
-      // with the labels from the RecordReader
-      eval.eval(next.getLabels(), output);
+    recordReaderTest.initialize(test);
+    NativeImageLoader loader = new NativeImageLoader(height, width, channels);
+    Evaluation eval = new Evaluation(20);
+    System.out.println(dataIter.getLabels());
+    Map<String,Integer> labels = new HashMap<String,Integer>();
+    for(int i=0; i<dataIter.getLabels().size();i++) {
+    	labels.put(dataIter.getLabels().get(i), i);
     }
+    while(recordReaderTest.hasNext()) {
+    	recordReaderTest.next();
+    	File currentFile = recordReaderTest.getCurrentFile();
+		INDArray asMatrix = loader.asMatrix(currentFile);
+    	String substring = currentFile.getName().substring(0, currentFile.getName().indexOf("_"));
+		int actualIdx = labels.get(substring);
+		INDArray output = model.output(asMatrix);
+		for(int i=0; i<dataIter.getLabels().size(); i++) {
+			if(output.getDouble(i)==1.00) {
+				eval.eval(i, actualIdx); break;
+			}
+		}
+		
 
-    log.info(eval.stats());
-  }
+    }
+    System.out.println(eval.stats());
+    recordReaderTest.close();
+ }
 
 }
