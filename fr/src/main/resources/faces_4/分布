@@ -1,0 +1,18 @@
+一共10个人的照片，其中训练集中三个方向的照片，测试集中是不同于训练集中的第四个方向的照片
+kk49 LSU R
+kawamura RSU L
+glickman LRS U
+danieln LRU S
+choon LSU R
+cheyer RSU L
+ch4f LRS U
+bpm LRU S
+boland LSU R
+an2i RSU L
+
+最好结果
+ # of classes:    10
+ Accuracy:        0.9114
+ Precision:       0.9394
+ Recall:          0.9125
+ F1 Score:        0.8864

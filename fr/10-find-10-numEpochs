@@ -1,0 +1,37 @@
+ numEpochs=20
+  # of classes:    10
+ Accuracy:        0.8987
+ Precision:       0.9333
+ Recall:          0.9000
+ F1 Score:        0.8756
+ numEpochs=21
+  # of classes:    10
+ Accuracy:        0.8987
+ Precision:       0.9333
+ Recall:          0.9000
+ F1 Score:        0.8756
+ numEpochs=22
+  # of classes:    10
+ Accuracy:        0.8987
+ Precision:       0.9333
+ Recall:          0.9000
+ F1 Score:        0.8756
+ numEpochs=23 
+  # of classes:    10
+ Accuracy:        0.9114
+ Precision:       0.9394
+ Recall:          0.9125
+ F1 Score:        0.8864
+ numEpochs=24 
+  # of classes:    10
+ Accuracy:        0.9114
+ Precision:       0.9394
+ Recall:          0.9125
+ F1 Score:        0.8864
+ numEpochs>24 #一直到100都不再有变化
+ Accuracy:        0.9114
+ Precision:       0.9394
+ Recall:          0.9125
+ F1 Score:        0.8864
+ 
+ 
